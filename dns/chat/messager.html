@@ -1,0 +1,135 @@
+<style>
+.conversation_orig{
+  margin-left:20px
+}
+footer {
+  position: fixed;
+  height: auto;
+  bottom: 0;
+
+}
+.receiver{
+  border-radius: 0 10px 10px 10px;
+  color:white;
+
+}
+.sender {
+  border-radius: 10px 0 10px 10px;
+  color:white;
+}
+.thumbnail{
+  max-width:62px;
+  max-height:62px;
+}
+.chat_actions{
+  border-radius: 60;
+  -webkit-border-radius: 60;
+  box-shadow: 0 0 2px #888;
+  
+}
+.flex {
+  display: flex;
+}
+img {
+  height:auto;
+}
+.ticcc {
+    flex-grow: 1;
+}
+
+
+</style>
+<!-- Message Box -->
+<div class="navbar row col-12" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="navbar-brand">
+    <img class="img-thumbnail rounded-circle" src="images/unknown.jpg">
+  </div>
+  <h2 class="ticcc" >BLA VLEDLSL</h2>
+  <div class="btn-group mr-2 bg-light navbar-item pull-right " role="group" aria-label="Second group">
+    <button type="button" class="btn btn-light"><i class="fa fa-cog"></i></button>
+    <button type="button" class="btn btn-light"><i class="fa fa-trash"></i></button>
+  </div>
+  <div class="btn-group mr-2 navbar-item pull-right" role="group" aria-label="First group">
+    <button type="button" class="btn btn-secondary" active><i class="fa fa-video-camera"></i></button>
+    <button type="button" class="btn btn-secondary"><i class="fa fa-phone"></i></button>
+    
+  </div>
+  
+</div>
+
+<div class="converation" stid="ciao" style="overflow-y:scroll;height:300px;">
+<div class="row col-sm-12 pa-2" >
+    <div ng-repeat-start="(key,message) in currentChat.messages track by $index"></div>
+    <div class="col-sm-8 offset-sm-4 pull-right mb-2" ng-if="message.sender == control.user">
+        <div class="row">
+          <div class="col-sm-10 text-wrap sender bg-dark">
+            <strong class="text-no-wrap"><b>{{message.sender}}</b></strong>
+            <span class="text-wrap">{{message.text}}</span>
+            <div class="align-text-bottom text-sm-right text-secondary">{{ message.date | date: " h:mma" }}</div>
+
+          </div>
+          <div class="col-sm-2 bg-secondary text-center">
+            <img class="thumbnail rounded-circle" src="images/topolino.png">
+          </div>
+        </div>
+      
+        
+    </div>
+    <div class="col-sm-8 mx-4 mb-2" ng-if="message.sender != control.user" ng-repeat-end>
+      <div class="row">
+          <div class="col-sm-2 text-center">
+            <img class="thumbnail rounded-circle mx-auto" src="images/thecat.jpg">
+          </div>
+          <div class="col-sm-10 p-2 receiver bg-dark">
+            <strong class="text-wrap">Cecilia</strong>
+            <div class="text-wrap">{{message.text}}</div> 
+            <div class="align-text-bottom text-sm-right text-secondary">{{ message.date | date: " h:mma" }}</div>
+          </div>
+
+      
+    </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+  <!-- Message Box End -->
+
+  <!-- Reply Box -->
+  
+  <div class="pa-2 shadow-sm text-truncate" offset="100">
+    <form name="form" class="conversation-compose" style="background:#444" ng-submit="control.addMessage()">
+      <div class="emoji">
+        <i class="fa fa-smile-o fa-2x"></i>
+      </div>
+      <div class="input-group">
+        <input class="cl-tooltip form-control" name="text" ng-model="control.text" placeholder="Type a message" autofocus required><!--ng-init="control.text='blabla'" ng-required-->
+        <select ng-if="false" type="text" class="custom-select" ng-model="control.other_input" >
+          <option>MANGIARE</option>
+          <option>DORMIRE</option>
+          <option>CACARE</option>
+        
+        </select>
+        <div class="photo chat_actions"><i class="fa fa-2x fa-paperclip"></i></div>
+        <div class="photo chat_actions"><i class="fa fa-2x fa-microphone" ng-click="control.error ='not oimple'"></i></div>
+        <div class="photo chat_actions"><i class="fa fa-2x fa-send" ng-click="control.error = 'errore'"></i></div>
+        
+      </div>
+      <h4><i class="fa fa-info-circle"></i>{{control.error}}</h4>
+
+    </div>
+      
+
+
+    </form>
+  </div>
+</div>
+
+
+
+<!-- Conversation

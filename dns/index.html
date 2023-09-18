@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=yes, maximum-scale=1.0, width=device-width" />
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap-switch.min.css" rel="stylesheet" type="text/css">
+
+
+  <link href="css/font-awesome.4.6.3.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" async defer type="text/css">
+  <link href="css/movie_styles.css" rel="stylesheet">
+  <link href="css/chat2.css" rel="stylesheet">
+  <link href="css/ngprogress.css" rel="stylesheet">
+  <script data-ad-client="ca-pub-4685989654150566" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script src="https://connect.facebook.net/it_IT/sdk.js"></script>
+  <style name="animations.css">
+      .view-animate-container {
+        position:relative;
+        height:100px!important;
+        background:white;
+        border:1px solid black;
+        height:40px;
+        overflow:hidden;
+      }
+
+      .view-animate.ng-enter, .view-animate.ng-leave {
+        -webkit-transition:all 0.66s linear;
+        transition:all 0.66s linear;
+        display:block;
+        width:100%;
+        border-left:1px solid #2d927e;
+
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        padding:10px;
+      }
+
+      .view-animate.ng-enter {
+        left:100%;
+      }
+      .view-animate.ng-enter.ng-enter-active {
+        left:0;
+      }
+      .view-animate.ng-leave.ng-leave-active {
+        left:-100%;
+      }
+      .cl_logo_capone {
+        max-width:50px;
+
+        width:auto;
+      }
+      .register_sfondo {
+        /* width:100%; */
+        background-image: url(images/sfondi/screen_ca.png);
+        background-size:cover;
+
+      }
+      .spalsh_overlay {
+        position:absolute
+      }
+
+    </style>
+
+
+  <style type="text/css">
+   ul li a{ display:block;
+    cursor: pointer;
+    padding:10px 20px 10px;}
+    li a:hover{
+      background-color:blue;
+      color:#ffffff;
+    }
+    .nav {
+      background:#00B0E0;
+      height:50px;
+
+    }
+    .header {display:inline;}
+    .nav > btn{ padding-right:20px;
+          color:#0eee}
+    .sfondo  {
+      background: linear-gradient(to bottom, #888, #EEE);
+    }
+    body {
+      padding: 50px 0 0;
+    }
+    pre {
+      font-weight: bold;
+      font-size:22px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    </style>
+
+  </head>
+  <style>
+  .custom-nav-style {
+    border : 1px solid blue;
+    box-shadow: 10px 0 10px black;
+
+    background-color: #00ff80;
+    max-height:0 !important;
+  }
+  .bottom-box
+  {
+    box-shadow: inset 0 -27px 9px -7px rgba(0,0,0,0.4);
+  }
+  .pull-right .navbar-toggle:after {
+    left: auto;
+    right: 13px;
+  }
+  .pull-right .navbar-toggle {
+    left: auto;
+    right: 0;
+  }
+  li { list-style-type:none;}
+  .bvars{
+    background: linear-gradient(to top, #cecece, #EEE);
+  }
+  .btn span {
+    color:white;
+  }
+  .doggo {
+    background-image: url(images/doggo_sfondo.png);
+    background-size:cover;
+    background-repeat: repeat-y;
+
+  }
+</style>
+<body style="background-color:#CCC"  id="anchor_progress" data-toggle="collapse" data-target>
+  <cl-navbar></cl-navbar>
+  <!-- <button class="btn btn-primary " id="confirmDialog">CONFIRM</button>
+  <a href="#coraggio"><span class="fa fa-2x fa-send" ></span></a>
+  <div class="col-12 card card-block text-center">
+    <div class="row">
+      <div class="col-sm-3"></div><img class="rounded-circle col-sm-6" ng-if="!splashLoad" src="images/gimmegomme.gif"><div class="col-sm-3"></div>
+    </div>
+
+  </div> -->
+<div >
+  <div ng-view class="doggo"  ></div><!-- qua TODO-->
+  <div class="col-12 card card-block">
+      <div class="btn btn-primary  mx-5 my-5" ng-click="move()">GO BACK</div>
+      <h1>{{debug}}</h1>
+    </div>
+
+
+</div>
+
+  </body>
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/angular.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.js"></script>
+  <script src="js/angular-route.js"></script>
+  <script src="js/angular-messages.min.js"></script>
+  <script src="js/angular-animate.min.js"></script>
+  <script src="js/ui-bootstrap-tpls-2.2.0.min.js"></script>
+    <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+  <script src="https://cdn.firebase.com/libs/geofire/4.1.2/geofire.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MQZ89S4E4L"></script>
+<script>            //                                --> ERRORE
+  try{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MQZ89S4E4L');
+    // e possibile aggiungere altre gtag('config' ,...)
+    // analytics track ind 'UA-136858434-1'
+
+
+
+  }
+
+  catch(err){console.log(err)}
+</script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer>
+</script>
+
+
+  <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCnfDtTBNv_W66cxLfmitf0oGsJkH49OVg",
+
+    authDomain: "myall-ada32.firebaseapp.com",
+    databaseURL : "myall-ada32.firebaseio.com",
+    storageBucket : "myall-ada32.appspot.com",
+    messagingSenderId : "969428577500",
+    measurementId: "G-MQZ89S4E4L",
+    projectId:'myall-ada32'
+  };
+  var fireapp = firebase.initializeApp(config);
+  const db = firebase.firestore();
+
+
+    // FB.Event.subscribe('auth.statusChange', function(response) {
+      // FB.getLoginStatus(function(response) {
+          // console.log("£non dovrei stgare qwui")
+    // })
+    // });
+
+
+</script>
+
+<script src="app/customfb.js"></script>
+<script src="app/ng-file-upload.min.js"></script>
+
+<script src="partials/shared/modal.js"></script>
+<script src="app/app.js"></script>
+<script src="app/preferences.js"></script>
+<script src="app/common.js"></script>
+<script src="app/pica.js"></script>
+<script src="app/direttiva.js"></script>
+<script src="app/factory/geoservice.js"></script>
+<script src="app/ngprogress.min.js"></script>
+
+<script src="data.js"></script>
+<script src="movie/movieController.js"></script>
+<script src="movie/batch.js"></script>
+
+<script src="burps/burps.js"></script>
+
+<script src="kikass/kikass.js"></script>
+<script src="cordova.js" type="text"></script>
+<script src="app/cordova_boot.js"></script>
+<script src="app/dialogs.js"></script>
+<script src="app/angular-native-transitions.js"></script>
+<script src="homeComponent/dash.js"></script>
+<script src="prefs_debug/stats.js"></script>
+<script src="chat/chatController.js"></script>
+</html>

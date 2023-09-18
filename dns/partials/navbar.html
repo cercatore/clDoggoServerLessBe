@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-md fixed-top py-0 navbar-dark bg-dark ">
+  <a class="row navbar-brand" href="http://claudiobagnato.com"><img class="rounded-circle cl_logo_capone" src="images/FL-logo.png">
+  <h4 class="pull-right">{{locale}}</h4>
+
+  </a>
+  <button class="btn btn-outline-success pull-right mr-2" ng-click="navbar.debug()" ng-if="!navbar.debug">::debug:iid</button>
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span>
+      MENU
+    </span>
+    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+  </button>
+  <button type="button" class="bg-light close"  data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="fa fa-close"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto text-light">
+      <li class="nav-item active">
+        <a class="nav-link" href="mailto:support@rairadio.app?subject=be%20%pls! :">Contact <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#home">Login +{{project.token}}</a>
+      </li>
+     
+      <li class="nav-item">
+        <a class="nav-link .debug_url" href="#dash">DASH</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link .debug_url" href="#prefs">debug prefs</a>
+      </li> -->
+      <li ng-if="rightPath" class="nav-item dropdown">
+        <a class="nav-link dropdown dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{userLoggedIn}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a ng-repeat="label_action in loginActions" href="/" ng-click="logout()">{{label_action}}</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">FEEDBAck</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://rairadio.app/about" ng-click="checkandgo()">MOBILE ABOUT</a>
+      </li>
+      
+    </ul>
+    
+    <form  class="form-inline my-2 my-lg-0" ng-submit="alert()">
+      <button class="pull-right btn btn-outline-dark" 
+       style="text-transform:none" >
+      <img  width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="images/512px-Google__G__Logo.svg.webp" /></button>
+      <input class="form-control mr-2" placeholder="sea social dogs ¯\_(ツ)_/¯" aria-label="Search" ng-model="somevar">
+      <button class="btn btn-outline-success my-2 my-sm-0"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</nav>
+<script>
+var el = $('nav a');
+	console.log(el);
+	el.on("click", function () {
+		$('.navbar-toggler').click();
+	})
+
+</script>
