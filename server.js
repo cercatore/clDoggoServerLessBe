@@ -19,4 +19,4 @@ server.listen(PORT, (err) => {
     
 })
 
-module.exports = server;
+export default server
