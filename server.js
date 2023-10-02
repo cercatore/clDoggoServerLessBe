@@ -7,7 +7,7 @@ var server = express();
 function handle(req, res) {
   // Serve the static public folder for GET requests to the root path
   if (req.method === 'GET' && req.url === '/') {
-    res.sendFile( 'public/index.html'));
+    res.sendFile( 'public/index.html');
   } else {
     // Handle other requests
     // ...
