@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server"
   },
-  "author": "",
+  "type":"module",
+  "author": "mavavbabsbsn",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
