@@ -1,10 +1,24 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
 
 var server = express();
 
-// server.use ( "/" , express.static ( __dirname + "/" + "dns") );
+// function handle(req, res) {
+//   // Serve the static public folder for GET requests to the root path
+//   if (req.method === 'GET' && req.url === '/') {
+//     res.sendFile(path.join(__dirname, 'public', 'index.html'));
+//   } else {
+//     // Handle other requests
+//     // ...
+//   }
+// }
+
+server.use ( "/" , express.static ( path.join(__dirname, "public")) );
 server.use( cors());
+
+// server.all('*', handle);
+
 
 
 
