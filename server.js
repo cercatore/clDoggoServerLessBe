@@ -1,9 +1,9 @@
-const express =  require('express');
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
 
 var server = express();
 
-server.use ( "/" , express.static ( __dirname + "/" + "dns") );
+// server.use ( "/" , express.static ( __dirname + "/" + "dns") );
 server.use( cors());
 
 
