@@ -1,7 +1,7 @@
 const express =  require('express');
 const cors = require('cors');
 
-server = express();
+var server = express();
 
 server.use ( "/" , express.static ( __dirname + "/" + "dns") );
 server.use( cors());
