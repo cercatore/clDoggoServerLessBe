@@ -14,7 +14,7 @@ var server = express();
 //   }
 // }
 
-server.use ( "/" , express.static ( "./static" );
+server.use ( "/" , express.static ( "./static"  ));
 server.use( cors());
 
 // server.all('*', handle);
